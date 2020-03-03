@@ -34,9 +34,9 @@ fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
-    let props = require(`./commands/help.js`);
+    let props = require(`./commands/${file}`);
     let help = file.split(".")[0];
-    console.log(`Attempting to load nsfw directory ${help}`);
+    console.log(`Attempting to load commands ${help}`);
     client.commands.set(help, props);
   });
 });
